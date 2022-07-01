@@ -1,0 +1,10 @@
+---
+- hosts: web
+  tasks:
+    - name: Template a file for apache2
+      template:
+        src: index.j2
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
