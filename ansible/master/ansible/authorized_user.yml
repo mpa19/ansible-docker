@@ -1,0 +1,12 @@
+---
+- hosts: web
+  tasks:
+    - name: Add the user 'app'
+      user:
+        name: app
+
+    - name: Set authorized key
+      authorized_key:
+        user: app
+        state: present
+        key: "{{ lookup('file', 'app.pub') }}"
